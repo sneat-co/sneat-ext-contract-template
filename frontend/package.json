@@ -7,7 +7,8 @@
   "scripts": {
     "lint": "pnpm exec nx run-many -t lint",
     "test": "pnpm exec nx run-many -t test",
-    "build": "pnpm exec nx run-many -t build"
+    "build": "pnpm exec nx run-many -t build",
+    "check:release-config": "pnpm exec nx run ext-template-contract:release-config"
   },
   "dependencies": {
     "@angular/core": "22.1.4",

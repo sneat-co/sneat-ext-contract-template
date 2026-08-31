@@ -55,9 +55,11 @@
       "preVersionCommand": "pnpm exec nx run ext-template-contract:build",
       "versionActions": "@nx/js/src/release/version-actions"
     },
-    "releaseTagPattern": "v{version}",
     "changelog": {
       "automaticFromRef": true
+    },
+    "releaseTag": {
+      "pattern": "v{version}"
     }
   },
   "plugins": [

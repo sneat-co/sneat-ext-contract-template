@@ -17,4 +17,4 @@ jobs:
     uses: sneat-co/cicd/.github/workflows/nx-ci.yml@main
     with:
       working-directory: frontend
-      targets: "lint test build"
+      targets: "lint test build release-config"
