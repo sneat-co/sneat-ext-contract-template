@@ -1,3 +1,13 @@
+## 0.0.4 (2026-08-31)
+
+### 🩹 Fixes
+
+- validate Nx release configuration in CI ([#22](https://github.com/sneat-co/sneat-ext-contract-template/pull/22))
+
+### ❤️ Thank You
+
+- Alexander Trakhimenok @trakhimenok
+
 ## 0.0.3 (2026-08-05)
 
 ### 🩹 Fixes
