@@ -16,6 +16,7 @@
     ],
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
+    "ignoreDeprecations": "6.0",
     "baseUrl": ".",
     "paths": {
       "@sneat/extension-template-contract": [
