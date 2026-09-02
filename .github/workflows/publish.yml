@@ -21,6 +21,22 @@ on:
           where you want it.
         required: false
         default: ''
+      dist-tag-version:
+        description: >-
+          One-off dist-tag repair. Set to an already-published version (e.g.
+          0.1.0) to SKIP the normal release entirely and instead move
+          `dist-tag-name` on npm to point at that version. Leave blank for a
+          normal release/publish run.
+        required: false
+        default: ''
+      dist-tag-package:
+        description: npm package to repair the dist-tag on (only used when dist-tag-version is set).
+        required: false
+        default: '@sneat/extension-template-contract'
+      dist-tag-name:
+        description: dist-tag to move (only used when dist-tag-version is set).
+        required: false
+        default: 'latest'
   push:
     branches: [main]
     paths:
@@ -29,13 +45,36 @@ on:
 
 jobs:
   publish:
+    if: ${{ github.event_name != 'workflow_dispatch' || inputs['dist-tag-version'] == '' }}
     uses: sneat-co/cicd/.github/workflows/npm-publish.yml@main
     with:
       working-directory: frontend
       build-command: pnpm exec nx build ext-template-contract
       # `inputs.specifier` is empty on push, so this is a plain conventional-
       # commits release there and an explicit one on demand.
-      publish-command: pnpm exec nx release ${{ inputs.specifier }} --yes && git push --follow-tags
+      #
+      # The trailing dist-tag correction guards against a recurrence of the
+      # 2026-08-27 incident: a 2026-07-16 workflow_dispatch release (0.1.0)
+      # published to npm and pushed its git tag, but its release COMMIT
+      # landed on a branch that never reached `main` (commit 771400f, a race
+      # with the concurrent push-triggered 0.0.2 release). This project's
+      # `currentVersionResolver: git-tag` (see project.json) only sees tags
+      # reachable from `main`'s history, so every later release kept bumping
+      # from the last reachable tag (0.0.2) — publishing 0.0.3, then 0.0.4 —
+      # each numerically BELOW the already-published-but-unreachable 0.1.0.
+      # `npm publish` has no monotonicity check, so plain `latest` regressed
+      # to 0.0.4 and stayed there. The step below re-points `latest` at
+      # whatever npm's registry says is the highest version actually
+      # published, after every run, independent of what nx's git-tag
+      # resolution could see. It cannot fix the underlying orphaned-tag
+      # history (that needs a human decision — see the PR description), but
+      # it stops `latest` from ever again regressing below a version that is
+      # already live.
+      publish-command: >-
+        pnpm exec nx release ${{ inputs.specifier }} --yes &&
+        git push --follow-tags &&
+        HIGHEST=$(npm view @sneat/extension-template-contract versions --json | jq -r '.[]' | sort -V | tail -1) &&
+        npm dist-tag add @sneat/extension-template-contract@$HIGHEST latest
     # Required, and easy to omit: npm-publish.yml reads secrets.NPM_TOKEN, and a
     # called workflow receives NO secrets — not even org-level ones — unless the
     # caller passes them. Without this the publish runs unauthenticated and npm
@@ -43,4 +82,18 @@ jobs:
     # callers) rather than a 403 that would name the real problem. That exact
     # omission kept ext-debtus and ext-splitus unpublished and broke debtus.app's
     # deploys for two days.
+    secrets: inherit
+
+  fix-dist-tag:
+    # One-off manual repair path: `gh workflow run publish.yml -f
+    # dist-tag-version=0.1.0` moves `latest` without running a release at
+    # all. Reuses the same reusable workflow (and its NODE_AUTH_TOKEN) as the
+    # publish job above, just with a dist-tag command instead of a release.
+    if: ${{ github.event_name == 'workflow_dispatch' && inputs['dist-tag-version'] != '' }}
+    uses: sneat-co/cicd/.github/workflows/npm-publish.yml@main
+    with:
+      working-directory: frontend
+      install-command: 'true'
+      publish-command: >-
+        npm dist-tag add ${{ inputs['dist-tag-package'] }}@${{ inputs['dist-tag-version'] }} ${{ inputs['dist-tag-name'] }}
     secrets: inherit
