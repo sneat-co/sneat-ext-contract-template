@@ -1,3 +1,10 @@
+## 0.0.9 (2026-09-09)
+
+### 🩹 Fixes
+
+- **deps:** update sneat-co dependencies to v0.27.20 ([61571ee](https://github.com/sneat-co/sneat-ext-contract-template/commit/61571ee))
+- **deps:** update sneat-co dependencies to v0.27.20 ([#29](https://github.com/sneat-co/sneat-ext-contract-template/pull/29))
+
 ## 0.0.8 (2026-09-08)
 
 ### 🩹 Fixes
