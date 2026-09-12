@@ -12,10 +12,10 @@
   },
   "dependencies": {
     "@angular/core": "22.1.5",
-    "@sneat/core": "0.27.24",
-    "@sneat/data": "0.27.24",
-    "@sneat/dto": "0.27.24",
-    "@sneat/space-models": "0.27.24",
+    "@sneat/core": "0.27.25",
+    "@sneat/data": "0.27.25",
+    "@sneat/dto": "0.27.25",
+    "@sneat/space-models": "0.27.25",
     "rxjs": "^7.8.2",
     "tslib": "^2.8.1"
   },
