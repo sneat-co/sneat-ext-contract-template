@@ -1,3 +1,10 @@
+## 0.0.12 (2026-09-14)
+
+### 🩹 Fixes
+
+- **deps:** update javascript dependencies ([660c8b1](https://github.com/sneat-co/sneat-ext-contract-template/commit/660c8b1))
+- **deps:** update javascript dependencies ([#32](https://github.com/sneat-co/sneat-ext-contract-template/pull/32))
+
 ## 0.0.11 (2026-09-12)
 
 ### 🩹 Fixes
