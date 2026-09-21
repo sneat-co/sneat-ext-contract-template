@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "license": "MIT",
   "private": true,
-  "packageManager": "pnpm@12.4.1",
+  "packageManager": "pnpm@12.5.1",
   "scripts": {
     "lint": "pnpm exec nx run-many -t lint",
     "test": "pnpm exec nx run-many -t test",
@@ -11,7 +11,7 @@
     "check:release-config": "pnpm exec nx run ext-template-contract:release-config"
   },
   "dependencies": {
-    "@angular/core": "22.1.6",
+    "@angular/core": "22.1.7",
     "@sneat/core": "0.27.26",
     "@sneat/data": "0.27.26",
     "@sneat/dto": "0.27.26",
@@ -22,11 +22,11 @@
   "devDependencies": {
     "@analogjs/vite-plugin-angular": "2.7.2",
     "@analogjs/vitest-angular": "2.7.2",
-    "@angular/common": "22.1.6",
+    "@angular/common": "22.1.7",
     "@angular/build": "22.1.8",
-    "@angular/compiler": "22.1.6",
-    "@angular/compiler-cli": "22.1.6",
-    "@angular/platform-browser": "22.1.6",
+    "@angular/compiler": "22.1.7",
+    "@angular/compiler-cli": "22.1.7",
+    "@angular/platform-browser": "22.1.7",
     "@eslint/js": "^10.0.0",
     "@nx/angular": "23.2.1",
     "@nx/eslint": "23.2.1",
@@ -34,8 +34,8 @@
     "@nx/vite": "23.2.1",
     "@nx/vitest": "23.2.1",
     "@typescript-eslint/utils": "^8.40.0",
-    "@vitest/coverage-v8": "5.0.0",
-    "@vitest/ui": "5.0.0",
+    "@vitest/coverage-v8": "5.0.1",
+    "@vitest/ui": "5.0.1",
     "angular-eslint": "22.5.0",
     "eslint": "^10.0.0",
     "eslint-config-prettier": "^10.0.0",
@@ -47,7 +47,7 @@
     "typescript-eslint": "^8.40.0",
     "vite": "^8.0.0",
     "vite-tsconfig-paths": "^6.0.0",
-    "vitest": "5.0.0"
+    "vitest": "5.0.1"
   },
   "nx": {
     "includedScripts": []
