@@ -1,3 +1,14 @@
+## 0.0.28 (2026-10-27)
+
+### 🩹 Fixes
+
+- **deps:** update sneat-co dependencies to v0.27.45 ([834f6f3](https://github.com/sneat-co/sneat-ext-contract-template/commit/834f6f3))
+- **deps:** update sneat-co dependencies to v0.27.45 ([#50](https://github.com/sneat-co/sneat-ext-contract-template/pull/50))
+
+### ❤️ Thank You
+
+- Alexander Trakhimenok @trakhimenok
+
 ## 0.0.27 (2026-10-27)
 
 ### 🩹 Fixes
