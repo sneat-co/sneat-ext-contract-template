@@ -1,3 +1,10 @@
+## 0.0.33 (2026-11-06)
+
+### 🩹 Fixes
+
+- **deps:** update sneat-co dependencies to v0.27.51 ([ac775b1](https://github.com/sneat-co/sneat-ext-contract-template/commit/ac775b1))
+- **deps:** update sneat-co dependencies to v0.27.51 ([#55](https://github.com/sneat-co/sneat-ext-contract-template/pull/55))
+
 ## 0.0.32 (2026-11-04)
 
 ### 🩹 Fixes
