@@ -54,7 +54,11 @@
       }
     },
     "lint": {
-      "executor": "@nx/eslint:lint"
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "pnpm exec eslint .",
+        "cwd": "libs/extensions/template/contract"
+      }
     }
   }
 }
