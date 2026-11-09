@@ -1,3 +1,13 @@
+## 0.0.35 (2026-11-09)
+
+### 🩹 Fixes
+
+- **frontend:** restore nx24 lint target and peer ranges ([4828e60](https://github.com/sneat-co/sneat-ext-contract-template/commit/4828e60))
+
+### ❤️ Thank You
+
+- trakhimenok @trakhimenok
+
 ## 0.0.34 (2026-11-09)
 
 ### 🩹 Fixes
