@@ -1,3 +1,10 @@
+## 0.0.39 (2026-11-27)
+
+### 🩹 Fixes
+
+- **deps:** update third-party non-major dependencies ([ac11180](https://github.com/sneat-co/sneat-ext-contract-template/commit/ac11180))
+- **deps:** update third-party non-major dependencies ([#61](https://github.com/sneat-co/sneat-ext-contract-template/pull/61))
+
 ## 0.0.38 (2026-11-20)
 
 ### 🩹 Fixes
